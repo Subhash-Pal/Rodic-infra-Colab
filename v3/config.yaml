@@ -1,0 +1,49 @@
+# RODIC V3 - edge drone pipeline configuration.
+# Every number below is an UNTESTED STARTING VALUE from a design draft or a
+# generic example. Tune on real footage; none of them is a measured result.
+
+conditioner:
+  blur_laplacian_min: 100.0     # Laplacian variance, measured on a frame resized to width 960
+  analysis_width: 960
+  clip_low_max_frac: 0.20       # reject if > 20 % of pixels are <= 5 (crushed shadows)
+  clip_high_max_frac: 0.10      # reject if > 10 % of pixels are >= 250 (blown highlights)
+  apply_clahe: true             # LAB L-channel CLAHE (for tunnels / low light)
+  clahe_clip_limit: 2.0
+  clahe_tile: 8
+
+sahi:
+  tile: 640
+  overlap: 0.20
+  conf: 0.25
+  merge_ios: 0.5                # non-maximum merging: intersection-over-smaller
+  batch_size: 8
+  full_frame_pass: true         # one downscaled pass for defects larger than a tile
+
+tracker:                        # simple greedy IoU tracker (stand-in for ByteTrack / OC-SORT)
+  iou_match: 0.3
+  confirm_frames: 3             # trigger a zoom only after this many consecutive frames
+  max_age: 5
+
+zoom:
+  mode: B                       # A = gimbal / optical zoom command, B = lossless ROI crop
+  padding: 0.25
+  unsharp_amount: 0.6
+  hfov_deg: 70.0                # EXAMPLE - set from the camera datasheet
+  target_frame_fraction: 0.5    # mode A: zoom until the defect fills this fraction of the frame
+  max_optical_zoom: 5.0
+  gimbal_deadband_deg: 1.0
+
+metrology:                      # EXAMPLE camera numbers - replace with the real camera's
+  pixel_pitch_um: 3.4
+  focal_mm: 8.8
+  distance_m: 10.0              # used when no reference / depth estimate is available
+  distance_rel_error: 0.20      # assumed error on distance; widens the reported interval
+  min_resolvable_px: 2.0        # a crack thinner than this is reported as an upper bound only
+
+video:
+  stride_s: 0.2                 # sampling interval for tracked video (temporal gating needs consecutive frames)
+
+batch:
+  max_detail_in_pdf: 100
+
+latency_target_ms: 80           # design target per cycle on Jetson Orin; NOT measured here

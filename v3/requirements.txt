@@ -1,0 +1,6 @@
+-r ../v2/requirements.txt
+pyyaml
+scipy
+scikit-image
+# optional: RT-DETR detector (needs defect-trained weights)
+# ultralytics

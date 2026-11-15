@@ -1,0 +1,7 @@
+numpy
+opencv-python-headless
+Pillow
+reportlab
+streamlit
+# optional: YOLOv8n / RT-DETR localizer (needs defect-trained weights)
+# ultralytics
