@@ -170,6 +170,10 @@ def recommend(
         )
 
     if cls == "none":
+        notes.append(
+            "No defect above the threshold is not proof of absence: the screening models have known misses "
+            "(for example cracks on plastered or painted surfaces)."
+        )
         return Recommendation("none", "none", "no defect reported", [], notes=notes)
 
     if cls == "unclassified":

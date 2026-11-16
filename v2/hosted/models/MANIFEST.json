@@ -1,0 +1,15 @@
+{
+  "source_repository": "https://github.com/Subhash-Pal/rodic-infraai-gemini-resilient",
+  "source_commit": "0c2d89b535352a152a7794de26760a7b81f1dcc5",
+  "base_url": "https://raw.githubusercontent.com/Subhash-Pal/rodic-infraai-gemini-resilient/0c2d89b535352a152a7794de26760a7b81f1dcc5/models",
+  "files": {
+    "best_codebrim.pt": {
+      "sha256": "68e7abd62befd767477e358f460c486ba38f34c33d9b1f87892ded0e1163580b",
+      "size": 44798475
+    },
+    "best_sdnet.pt": {
+      "sha256": "9f3d2247d542f309d252856953f4900e309d6b2189d2acdf5e2b292676de8c59",
+      "size": 44789515
+    }
+  }
+}

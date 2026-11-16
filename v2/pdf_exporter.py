@@ -181,6 +181,9 @@ def export_report(
                 text.append(Paragraph("- " + escape(action), small))
             for note in rec.get("notes", []):
                 text.append(Paragraph("<i>Note: " + escape(note) + "</i>", small))
+            if f.get("evidence_state"):
+                text.append(Paragraph(
+                    f"Evidence arbitration (CV vs Gemini): {escape(str(f['evidence_state']))}", small))
             text.append(Paragraph(f"Source: {escape(str(f.get('source', 'n/a')))}", small))
             image = f.get("image")
             cells = [[_rl_image(image) if image is not None else "", text]]

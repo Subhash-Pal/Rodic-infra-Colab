@@ -159,6 +159,7 @@ def process_samples(
     min_score: float = 0.0,
     repeat_iou: float = 0.5,
     on_event: Optional[Callable[[DefectEvent], None]] = None,
+    overview_max_side: Optional[int] = 960,
 ) -> List[DefectEvent]:
     """Run localize -> padded crop -> analyze over sampled frames.
 
@@ -188,6 +189,12 @@ def process_samples(
             current_boxes.append(box.xyxy)
         if frame_events:
             annotated = draw_events(sample.frame, frame_events)
+            if overview_max_side and max(annotated.shape[:2]) > overview_max_side:
+                # keep memory flat on small hosts: events share one downscaled overview per frame
+                scale = overview_max_side / max(annotated.shape[:2])
+                annotated = cv2.resize(annotated, (int(round(annotated.shape[1] * scale)),
+                                                   int(round(annotated.shape[0] * scale))),
+                                       interpolation=cv2.INTER_AREA)
             for event in frame_events:
                 event.annotated = annotated
                 events.append(event)

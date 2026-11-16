@@ -1,3 +1,9 @@
 __pycache__/
 .pytest_cache/
 *.pyc
+
+# secrets and large / generated files
+.streamlit/secrets.toml
+v2/hosted/models/*.pt
+v2/hosted/models/*.part
+v2/hosted/outputs/
