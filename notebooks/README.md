@@ -7,6 +7,13 @@ Colab notebooks for syncing work to this repo and running CI/CD. Open in Colab:
 | `Rodic_01_CICD_Pipeline.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subhash-Pal/Rodic-infra-Colab/blob/main/notebooks/Rodic_01_CICD_Pipeline.ipynb) |
 | `Rodic_00_GitHub_Sync.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subhash-Pal/Rodic-infra-Colab/blob/main/notebooks/Rodic_00_GitHub_Sync.ipynb) |
 
+Existing notebooks (moved here from the repo root):
+
+| Notebook | Open |
+|---|---|
+| `Rodic_Edge_CV.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subhash-Pal/Rodic-infra-Colab/blob/main/notebooks/Rodic_Edge_CV.ipynb) |
+| `rodic_infraai_gemini_resilient.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subhash-Pal/Rodic-infra-Colab/blob/main/notebooks/rodic_infraai_gemini_resilient.ipynb) |
+
 ## Order
 
 0. Create a fine-grained GitHub token for this repo only (Contents and Workflows read/write, Actions read). Add it as the Colab Secret `GITHUB_TOKEN` with Notebook access on. Never commit it.
