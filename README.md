@@ -5,6 +5,7 @@ Versioned Rodic work lives here and only here (`Vx/` folders). Research and prod
 | Path | What it is |
 |---|---|
 | `Rodic_Edge_CV.ipynb` | Colab notebook: CPU baseline benchmark, sliding-window boundary fix, localization experiment |
+| `notebooks/` | Colab notebooks: GitHub sync (00) and CI/CD setup (01), with Open in Colab links and run order (see `notebooks/README.md`) |
 | `v2/` | Video auto-zoom, IRC / MoRTH-grounded recommendations, one-click PDF report, Streamlit app |
 | `v3/` | Sensorless long-range pipeline: SAHI + RT-DETR, tracker-gated zoom, crack-width metrology, batch runner, offline VLM queue |
 
