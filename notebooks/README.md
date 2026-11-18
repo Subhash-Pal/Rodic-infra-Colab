@@ -16,7 +16,7 @@ Existing notebooks (moved here from the repo root):
 
 ## Order
 
-0. Create a fine-grained GitHub token for this repo only (Contents and Workflows read/write, Actions read). Add it as the Colab Secret `GITHUB_TOKEN` with Notebook access on. Never commit it.
+0. Create a fine-grained GitHub token for this repo only (Contents and Workflows read/write, Actions read). Add it as the Colab Secret `GITHUB_KEY-Rodic-infra-Colab` with Notebook access on. Never commit it.
 1. Run `Rodic_01_CICD_Pipeline.ipynb` once to add CI (lint, secret check, pytest) and the tag-based release workflow.
 2. Run `Rodic_00_GitHub_Sync_v2.ipynb` with `DRY_RUN = True` and check what would be committed.
 3. Run `Rodic_00_GitHub_Sync_v2.ipynb` with `DRY_RUN = False` after each work session. Write code to `/content/work`, and put a `### ` heading above each cell that says what it adds; those headings become the commit message and `CHANGELOG.md`.
