@@ -19,6 +19,6 @@ Existing notebooks (moved here from the repo root):
 0. Create a fine-grained GitHub token for this repo only (Contents and Workflows read/write, Actions read). Add it as the Colab Secret `GITHUB_KEY-Rodic-infra-Colab` with Notebook access on. Never commit it.
 1. Run `Rodic_01_CICD_Pipeline.ipynb` once to add CI (lint, secret check, pytest) and the tag-based release workflow.
 2. Run `Rodic_00_GitHub_Sync_v2.ipynb` with `DRY_RUN = True` and check what would be committed.
-3. Run `Rodic_00_GitHub_Sync_v2.ipynb` with `DRY_RUN = False` after each work session. Write code to `/content/work`, and put a `### ` heading above each cell that says what it adds; those headings become the commit message and `CHANGELOG.md`.
+3. Run `Rodic_00_GitHub_Sync_v2.ipynb` with `DRY_RUN = False` after each work session. Put work files in Google Drive `My Drive/rodic_work` (or list notebook names in `NOTEBOOK_FILES`), and put a `### ` heading above each cell that says what it adds; those headings become the commit message and `CHANGELOG.md`.
 
-Status: written and syntax-checked, not yet run end to end in Colab. The CI gates are basic (syntax and undefined-name lint, secret pattern check, synthetic-data tests); there is no model-accuracy or Jetson test yet.
+Status (18 Nov): CI/CD notebook run end to end; workflows are on GitHub and the first CI run is green (lint, 84 tests). The sync notebook has run but has not pushed real work yet. The CI gates are basic (syntax and undefined-name lint, secret pattern check, synthetic-data tests); there is no model-accuracy or Jetson test yet.
