@@ -9,6 +9,7 @@ Keep this file updated. Add a row whenever a new error appears and how it was fi
 | 18 Nov | `Rodic_00_GitHub_Sync` (v0.1) | `AssertionError: WORK_DIR not found: /content/work` | Each Colab has its own runtime, so `/content/work` never existed in the sync notebook | Work folder moved to Google Drive (`My Drive/rodic_work`), created automatically; use `Rodic_00_GitHub_Sync_v2` | Fixed |
 | 18 Nov | `Rodic_00_GitHub_Sync` | Fixes disappeared, repo got "Created using Colab" commits | An old open tab re-saved itself to GitHub and overwrote the fixed file | Renamed to `_v2`, added a version stamp (`Running: 00-sync v0.3`); close old tabs; open only via the badge | Fixed |
 | 18 Nov | `Rodic_00_GitHub_Sync_v2` | Last cell: `Nothing changed - nothing to push.` | Not an error. The Drive `rodic_work` folder and `NOTEBOOK_FILES` were both empty, so nothing was staged | Put files in `My Drive/rodic_work`, or list notebook names in `NOTEBOOK_FILES` | Expected |
+| 18 Nov | `Rodic_01_CICD_Pipeline` | Last push cell said `Workflows already up to date.` but `.github/workflows` was not on GitHub and Actions showed 0 runs | An earlier push failed (token without Workflows permission), the commit stayed in the Colab's local clone, and the cell only pushed when it had something new to commit | v0.2: the cell pushes whenever local is ahead, prints `PUSH FAILED` with a hint, and lists `.github/workflows` as seen on GitHub. Fix the token scope and re-run that cell | Fixed in v0.2, awaiting re-run |
 
 ## Quick recovery table
 
