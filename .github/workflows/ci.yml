@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: |
+          pip install -r v2/requirements.txt pytest pyyaml scikit-image scipy ruff
+      - name: Lint (syntax and undefined names only)
+        run: ruff check --select E9,F63,F7,F82 .
+      - name: Secret pattern check
+        run: |
+          if grep -RIEn --exclude-dir=.git 'AIza[0-9A-Za-z_-]{35}|ghp_[A-Za-z0-9]{36}|sk-ant-[A-Za-z0-9_-]{20,}' . ; then
+            echo "Possible secret committed"; exit 1; fi
+      - name: Tests
+        run: pytest -q
